@@ -7,7 +7,7 @@
  */
 @media print, screen and (min-width: 40em) {
   .reveal, .reveal.tiny, .reveal.small, .reveal.large {
-    right: auto;0
+    right: auto;
     left: auto;
     margin: 0 auto; } }
 

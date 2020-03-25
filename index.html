@@ -1,21 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">  
+
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crypto Kings!</title>
+    <title>Foundation for Sites</title>
     <link rel="stylesheet" href="assets/css/app.css">
-</head>
-
+  </head>
 <body>
-    <div class="top-bar">
+
+
+  <div class="top-bar-container " data-sticky-container>
+    <div class="sticky sticky-topbar" data-sticky data-options="anchor: page; marginTop: 0; stickyOn: small;">
+      <div class="top-bar">
         <div class="top-bar-left">
           <ul class="dropdown menu" data-dropdown-menu>
             <li class="menu-text">Site Title</li>
-            <li>
+            <li class="has-submenu">
               <a href="#">One</a>
-              <ul class="menu vertical">
+              <ul class="submenu menu vertical" data-submenu>
                 <li><a href="#">One</a></li>
                 <li><a href="#">Two</a></li>
                 <li><a href="#">Three</a></li>
@@ -32,46 +36,44 @@
           </ul>
         </div>
       </div>
-    <p>
-        Reuben
-    </p>
-    <div class="row">
-    <h1 class="hello">Crypto Kings!</h1>
-       <div class="row">
-            <div class="col-lg-12">
-                <img src="img/Wireframe-200323A.jpg" alt="Wireframe for planning" class="img-fluid">
-            </div>
-        </div>
     </div>
-    <table id="cryptocurrency names">
-        <thead id="Coin Names">
-          <tr>
-            <th width="200">Market</th>
-            <th>24hr Change</th>
-            <th width="150">Price</th>
-            <th width="150">Holdings</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>*Ajax call for cryptocurrency name*</td>
-            <td>*Ajax call for 24hr change* + *Ajax call for graph*</td>
-            <td>*Ajax call for current price*</td>
-            <td>*Ajax call for value of holdings at present time*</td>
-          </tr>
-          <tr>
-            <td>*Ajax call for cryptocurrency name*</td>
-            <td>*Ajax call for 24hr change* + *Ajax call for graph*</td>
-            <td>*Ajax call for current price*</td>
-            <td>*Ajax call for value of holdings at present time*</td>
-          </tr>
-          <tr>
-            <td>*Ajax call for cryptocurrency name*</td>
-            <td>*Ajax call for 24hr change* + *Ajax call for graph*</td>
-            <td>*Ajax call for current price*</td>
-            <td>*Ajax call for value of holdings at present time*</td>
-          </tr>
-        </tbody>
-      </table>
+  </div>
+
+
+  <table>
+    <thead>
+      <tr>
+        <th>Market</th>
+        <th>Price change</th>
+        <th>Chart</th>
+        <th>Price</th>
+        <th>Holding</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>BTC</td>
+        <td>-5%</td>
+        <td>img</td>
+        <td>8000</td>
+        <td>24000</td>
+      </tr>
+      <tr>
+        <td>Content Goes Here</td>
+        <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
+        <td>Content Goes Here</td>
+        <td>Content Goes Here</td>
+      </tr>
+      <tr>
+        <td>Content Goes Here</td>
+        <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
+        <td>Content Goes Here</td>
+        <td>Content Goes Here</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+<script src="assets/js/app.js"></script>
 </body>
 </html>
