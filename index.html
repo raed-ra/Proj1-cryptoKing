@@ -1,79 +1,125 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Foundation for Sites</title>
-    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="stylesheet" href="assets/css/app.css" />
   </head>
-<body>
+  <body>
+    <div class="top-bar-container " data-sticky-container>
+      <div
+        class="sticky sticky-topbar"
+        data-sticky
+        data-options="anchor: page; marginTop: 0; stickyOn: small;"
+      >
+        <div class="top-bar">
+          <div class="top-bar-left">
+            <ul class="dropdown menu" data-dropdown-menu>
+              <li class="menu-text">CRYPTO KINGS</li>
 
-
-  <div class="top-bar-container " data-sticky-container>
-    <div class="sticky sticky-topbar" data-sticky data-options="anchor: page; marginTop: 0; stickyOn: small;">
-      <div class="top-bar">
-        <div class="top-bar-left">
-          <ul class="dropdown menu" data-dropdown-menu>
-            <li class="menu-text">Site Title</li>
-            <li class="has-submenu">
+              <!-- DON'T NEED DROPDOWN ON NAVBAR - FOR NOW -->
+              <!-- <li class="has-submenu">
               <a href="#">One</a>
               <ul class="submenu menu vertical" data-submenu>
                 <li><a href="#">One</a></li>
                 <li><a href="#">Two</a></li>
                 <li><a href="#">Three</a></li>
               </ul>
-            </li>
-            <li><a href="#">Two</a></li>
-            <li><a href="#">Three</a></li>
-          </ul>
-        </div>
-        <div class="top-bar-right">
+            </li> -->
+
+              <li>
+                <p>
+                  <button class="button" data-open="exampleModal1">
+                    INSTRUCTIONS
+                  </button>
+                </p>
+              </li>
+              <li><a href="#">NEW GAME</a></li>
+            </ul>
+          </div>
+
+          <!-- DON'T NEED SEARCH ON NAVBAR - FOR NOW -->
+          <!-- <div class="top-bar-right">
           <ul class="menu">
             <li><input type="search" placeholder="Search"></li>
             <li><button type="button" class="button">Search</button></li>
           </ul>
+        </div> -->
         </div>
       </div>
     </div>
-  </div>
 
+    <!-- MAIN TABLE SHOWING CRYPTO PRICES -->
+    <table>
+      <thead>
+        <tr>
+          <th>MARKET</th>
+          <th>PRICE CHANGE</th>
+          
+          <th>PRICE</th>
+          <th>HOLDINGS</th>
+          <th>BUY/SELL</th>
+        </tr>
+      </thead>
+      <tbody id="table-body">
+        <tr class="cryto-row">
+          <td class="td-symbol">BTC</td>
+          <td class="td-change">-5%</td>
+          
+          <td class="td-price">8000</td>
+          <td class="td-holdings">24000</td>
+          <td>
+            <p>
+              <button class="button" data-open="exampleModal1">BUY/SELL</button>
+            </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Market</th>
-        <th>Price change</th>
-        <th>Chart</th>
-        <th>Price</th>
-        <th>Holding</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>BTC</td>
-        <td>-5%</td>
-        <td>img</td>
-        <td>8000</td>
-        <td>24000</td>
-      </tr>
-      <tr>
-        <td>Content Goes Here</td>
-        <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
-        <td>Content Goes Here</td>
-        <td>Content Goes Here</td>
-      </tr>
-      <tr>
-        <td>Content Goes Here</td>
-        <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
-        <td>Content Goes Here</td>
-        <td>Content Goes Here</td>
-      </tr>
-    </tbody>
-  </table>
+    <!-- BOTTOM ROW SHOWING AVAILABLE FUNDS; TOTAL HOLDINGS; PROFIT/LOSS (ALL IN AU$)  -->
+    <table>
+      <thead>
+        <tr>
+          <th>AVAILABLE FUNDS</th>
+          <th>TOTAL HOLDINGS</th>
+          <th>PROFIT/LOSS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>AU $100,000.00</td>
+          <td>AU $0.00</td>
+          <td>AU $0.00</td>
+        </tr>
+      </tbody>
+    </table>
 
+    <!-- MODAL PLACE HOLDER (CURRENTLY LINKED TO "INSTRUCTIONS" AND "BUY/SELL" BUTTONS) -->
+    <div class="reveal" id="exampleModal1" data-reveal>
+      <h1>Awesome. I Have It.</h1>
+      <p class="lead">Your couch. It is mine.</p>
+      <p>
+        I'm a cool paragraph that lives inside of an even cooler modal. Wins!
+      </p>
+      <button
+        class="close-button"
+        data-close
+        aria-label="Close modal"
+        type="button"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
 
-<script src="assets/js/app.js"></script>
-</body>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"
+    ></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/coinmarketcapAPI.js"></script>
+  </body>
 </html>
