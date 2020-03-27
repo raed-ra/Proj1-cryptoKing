@@ -7,53 +7,69 @@
     <title>Crypto Kings</title>
     <link rel="stylesheet" href="assets/css/app.css" />
   </head>
+
   <body>
-    <div class="top-bar-container " data-sticky-container>
+    <!-- <div class="flex-container align-center">
+      <ul class="code-menu menu">
+        <li class="code-menu-item is-active" data-toggle-html="">
+          <a href="#">HTML</a>
+        </li>
+        <li class="code-menu-item is-active" data-toggle-styles="">
+          <a href="#">SCSS</a>
+        </li>
+        <li class="code-menu-item is-active" data-toggle-js="">
+          <a href="#">JS</a>
+        </li>
+      </ul>
+    </div> -->
+
+    <div class="expanded button-group">
+      <a class="button" data-open="cryptokings">CRYPTO KINGS</a>
+      <a class="button" data-open="instructions">INSTRUCTIONS</a>
+      <a class="button" data-open="newgame">NEW GAME</a>
+    </div>
+
+    <!-- ORIGINAL NAVBAR -->
+    <!-- <div class="top-bar-container" data-sticky-container>
       <div
         class="sticky sticky-topbar"
         data-sticky
-        data-options="anchor: page; marginTop: 0; stickyOn: small;"
+        data-options="anchor: page; marginTop: 0; marginBottom: 1; stickyOn: small;"
       >
         <div class="top-bar">
           <div class="top-bar-left">
-            <ul class="dropdown menu" data-dropdown-menu>
+            <ul class="dropdown menu">
               <li class="menu-text">CRYPTO KINGS</li>
-
-              <!-- DON'T NEED DROPDOWN ON NAVBAR - FOR NOW -->
-              <!-- <li class="has-submenu">
-              <a href="#">One</a>
-              <ul class="submenu menu vertical" data-submenu>
-                <li><a href="#">One</a></li>
-                <li><a href="#">Two</a></li>
-                <li><a href="#">Three</a></li>
-              </ul>
-            </li> -->
-
               <li>
                 <p>
-                  <button class="button" data-open="exampleModal1">
+                  <button class="button">
                     INSTRUCTIONS
                   </button>
                 </p>
               </li>
-              <li><a href="#">NEW GAME</a></li>
+              <li>
+                <p>
+                  <button class="button" data-open="exampleModal1">
+                    NEW GAME
+                  </button>
+                </p>
+              </li>
             </ul>
-          </div>
+          </div> -->
 
-          <!-- DON'T NEED SEARCH ON NAVBAR - FOR NOW -->
-          <!-- <div class="top-bar-right">
+    <!-- DON'T NEED SEARCH ON NAVBAR - FOR NOW -->
+    <!-- <div class="top-bar-right">
           <ul class="menu">
             <li><input type="search" placeholder="Search"></li>
             <li><button type="button" class="button">Search</button></li>
           </ul>
-        </div> -->
+        </div>
         </div>
       </div>
     </div>
 
     <!-- MAIN TABLE SHOWING CRYPTO PRICES -->
     <table>
-     
       <!-- COLUMN HEADINGS -->
       <thead>
         <tr>
@@ -61,7 +77,6 @@
           <th>PRICE CHANGE</th>
           <th>PRICE</th>
           <th>HOLDINGS</th>
-          <th>BUY/SELL</th>
         </tr>
       </thead>
 
@@ -69,17 +84,12 @@
       <tbody id="table-body">
         <tr class="cryto-row">
           <td class="td-symbol">BTC</td>
-
           <td class="td-change">-5%</td>
-
           <td class="td-price">8000</td>
-
-          <td class="td-holdings">24000</td>
-
-          <td class="td-buysell">
+          <td class="td-holdings">
             <p>
-              <button class="button td-buysell" data-open="exampleModal1">
-                BUY/SELL
+              <button class="button td-holdings" data-open="buysell">
+                $0.00
               </button>
             </p>
           </td>
@@ -112,9 +122,60 @@
     </table>
 
     <!-- MODAL PLACE HOLDER (CURRENTLY LINKED TO "INSTRUCTIONS" AND "BUY/SELL" BUTTONS) -->
-    <div class="reveal" id="exampleModal1" data-reveal>
-      <h1>Awesome. I Have It.</h1>
-      <p class="lead">Your couch. It is mine.</p>
+    <div class="reveal" id="cryptokings" data-reveal>
+      <h1>ABOUT CRYPTO KINGS</h1>
+      <p class="lead">Lorem ipsum dolor sit amet.</p>
+      <p>
+        I'm a cool paragraph that lives inside of an even cooler modal. Wins!
+      </p>
+      <button
+        class="close-button"
+        data-close
+        aria-label="Close modal"
+        type="button"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <!-- MODAL PLACE HOLDER (CURRENTLY LINKED TO "INSTRUCTIONS" AND "BUY/SELL" BUTTONS) -->
+    <div class="reveal" id="instructions" data-reveal>
+      <h1>INSTRUCTIONS</h1>
+      <p class="lead">Lorem ipsum dolor sit amet.</p>
+      <p>
+        I'm a cool paragraph that lives inside of an even cooler modal. Wins!
+      </p>
+      <button
+        class="close-button"
+        data-close
+        aria-label="Close modal"
+        type="button"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <!-- MODAL PLACE HOLDER (CURRENTLY LINKED TO "INSTRUCTIONS" AND "BUY/SELL" BUTTONS) -->
+    <div class="reveal" id="newgame" data-reveal>
+      <h1>NEW GAME</h1>
+      <p class="lead">Are you sure you wan't to start a new game?!</p>
+      <p>
+        I'm a cool paragraph that lives inside of an even cooler modal. Wins!
+      </p>
+      <button
+        class="close-button"
+        data-close
+        aria-label="Close modal"
+        type="button"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <!-- MODAL PLACE HOLDER (CURRENTLY LINKED TO "INSTRUCTIONS" AND "BUY/SELL" BUTTONS) -->
+    <div class="reveal" id="buysell" data-reveal>
+      <h1>BUY OR SELL</h1>
+      <p class="lead">Lorem ipsum dolor sit amet.</p>
       <p>
         I'm a cool paragraph that lives inside of an even cooler modal. Wins!
       </p>

@@ -24,10 +24,9 @@ function createRow(symbolData){
     var tdSymbol = $("<td>").addClass("td-symbol").text(symbolData.symbol)
     var tdChange = $("<td>").addClass("td-change").text(symbolData.quote.USD.percent_change_24h)
     var tdPrice = $("<td>").addClass("td-price").text(symbolData.quote.USD.price)
-    var tdHoldings = $("<td>").addClass("td-holdings").text("$0.0")
-    var tdBuySell = $("<td>").addClass("button td-buysell").text("$0.0")
+    var tdHoldings = $("<td>").addClass("button td-holdings").text("$0.00")
 
-    row.append(tdSymbol, tdChange, tdPrice, tdHoldings, tdBuySell)
+    row.append(tdSymbol, tdChange, tdPrice, tdHoldings)
 
     $("#table-body").append(row)
 }
