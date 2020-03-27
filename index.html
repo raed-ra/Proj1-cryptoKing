@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foundation for Sites</title>
+    <title>Crypto Kings</title>
     <link rel="stylesheet" href="assets/css/app.css" />
   </head>
   <body>
@@ -53,28 +53,42 @@
 
     <!-- MAIN TABLE SHOWING CRYPTO PRICES -->
     <table>
+     
+      <!-- COLUMN HEADINGS -->
       <thead>
         <tr>
           <th>MARKET</th>
           <th>PRICE CHANGE</th>
-          
           <th>PRICE</th>
           <th>HOLDINGS</th>
           <th>BUY/SELL</th>
         </tr>
       </thead>
+
+      <!-- ROWS -->
       <tbody id="table-body">
         <tr class="cryto-row">
           <td class="td-symbol">BTC</td>
+
           <td class="td-change">-5%</td>
-          
+
           <td class="td-price">8000</td>
+
           <td class="td-holdings">24000</td>
-          <td>
+
+          <td class="td-buysell">
             <p>
-              <button class="button" data-open="exampleModal1">BUY/SELL</button>
+              <button class="button td-buysell" data-open="exampleModal1">
+                BUY/SELL
+              </button>
             </p>
           </td>
+
+          <!-- <td>
+            <p>
+              <button class="button td-buysell" data-open="exampleModal1">BUY/SELL</button>
+            </p>
+          </td> -->
         </tr>
       </tbody>
     </table>

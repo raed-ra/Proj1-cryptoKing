@@ -15,8 +15,6 @@
 //   gzip: true
 // };
 
-
-
 var data = `"{"id":1,"name":"Bitcoin","symbol":"BTC","slug":"bitcoin","num_market_pairs":7919,"date_added":"2013-04-28T00:00:00.000Z","tags":["mineable"],"max_supply":21000000,"circulating_supply":17906012,"total_supply":17906012,"platform":null,"cmc_rank":1,"last_updated":"2019-08-30T18:51:28.000Z","quote":{"USD":{"price":9558.55163723,"volume_24h":13728947008.2722,"percent_change_1h":-0.127291,"percent_change_24h":0.328918,"percent_change_7d":-8.00576,"market_cap":171155540318.86005,"last_updated":"2019-08-30T18:51:28.000Z"}}}"`
 
 function createRow(symbolData){
@@ -26,14 +24,12 @@ function createRow(symbolData){
     var tdSymbol = $("<td>").addClass("td-symbol").text(symbolData.symbol)
     var tdChange = $("<td>").addClass("td-change").text(symbolData.quote.USD.percent_change_24h)
     var tdPrice = $("<td>").addClass("td-price").text(symbolData.quote.USD.price)
-    var tdHoldings = $("<td>").addClass("td-holdings")
+    var tdHoldings = $("<td>").addClass("td-holdings").text("$0.0")
+    var tdBuySell = $("<td>").addClass("button td-buysell").text("$0.0")
 
-
-    row.append(tdSymbol, tdChange, tdPrice, tdHoldings)
+    row.append(tdSymbol, tdChange, tdPrice, tdHoldings, tdBuySell)
 
     $("#table-body").append(row)
-    
-
 }
 
 $.ajax({
@@ -45,15 +41,13 @@ $.ajax({
   data: {},
   success: function(response) {
     console.log(response);
-    for (let index = 0; index < response.data.length; index++) {
+    // for (let index = 0; index < response.data.length; index++) { **previous version
+    for (let index = 0; index < 10; index++) {
         const element = response.data[index];
 
         createRow(element)
-        
     }
     
-
-
   },
   dataType: "json"
 });
