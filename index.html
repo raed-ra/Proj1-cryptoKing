@@ -1,13 +1,13 @@
 <!DOCTYPE html>
+<!-- ####TEST PUSH KR 7.55pm ###### -->
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
 
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crypto King</title>
-    <link rel="stylesheet" href="assets/css/app.css">
-       
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crypto Kings</title>
+    <link rel="stylesheet" href="assets/css/app.css" />
   </head>
 
   <body>
@@ -22,10 +22,10 @@
     <table>
       <thead>
         <tr>
-          <th>MARKET</th>
-          <th>PRICE CHANGE</th>
-          <th>PRICE</th>
-          <th>HOLDINGS</th>
+          <th>CRYPTO MARKET</th>
+          <th>24HR PRICE CHANGE (%)</th>
+          <th>CRYPTO VALUE (US$)</th>
+          <th>HOLDINGS VALUE (US$)</th>
         </tr>
       </thead>
 
@@ -68,9 +68,9 @@
     <!-- ABOUT CRYPTO KINGS MODAL -->
     <div class="reveal" id="cryptokings" data-reveal>
       <h1>ABOUT CRYPTO KINGS</h1>
-      <p class="lead">Lorem ipsum dolor sit amet.</p>
+      <p class="lead">What is Crypto Kings?</p>
       <p>
-        I'm a cool paragraph that lives inside of an even cooler modal. Wins!
+        Crypto Kings is a crypto currency trading app that gives you a virtual "bank" containg USD$100,000 in virtual currency to buy and sell crypto currency, using live, real-world crypto currency data, with the aim of generating a profit.
       </p>
       <button
         class="close-button"
@@ -83,11 +83,34 @@
     </div>
 
     <!-- INSTRUCTIONS MODAL -->
-    <div class="reveal" id="instructions" data-reveal>
+    <div class="full reveal" id="instructions" data-reveal>
       <h1>INSTRUCTIONS</h1>
-      <p class="lead">Lorem ipsum dolor sit amet.</p>
+      <p class="lead">Sharpen your crypto trading skills with Crypto Kings.</p>
+      <p class="lead">Watch your virtual money pile up or go bust trying!</p>
       <p>
-        I'm a cool paragraph that lives inside of an even cooler modal. Wins!
+        1. To view additional data and allocate your funds simply click the
+        holdings value button in the corresponding cryptocurrency row you are
+        interested in.
+      </p>
+      <p>
+        2. In the popup window, select either the BUY or SELL mode and then
+        enter the amount you’d like to buy or sell.
+      </p>
+      <p>
+        3. Your buying capacity is limited by the funds you have remaining in
+        your "bank" (the game starts with $100,000).
+      </p>
+      <p>
+        4. Your selling capacity is limited by the holdings you have of the
+        crypto currency you'd like to sell.
+      </p>
+      <p>
+        5. Your holdings will go up or down each time you refresh the page,
+        according to the change in value of your currencies.
+      </p>
+      <p>
+        We only have limited data so please try not to spam the refresh button.
+        Good luck! 😊
       </p>
       <button
         class="close-button"
@@ -123,6 +146,11 @@
       <p>
         I'm a cool paragraph that lives inside of an even cooler modal. Wins!
       </p>
+      <p>
+        <button class="button" data-toggle="exampleModal8">
+          Click me for a full-screen modal
+        </button>
+      </p>
       <button
         class="close-button"
         data-close
@@ -133,6 +161,32 @@
       </button>
     </div>
 
+    <!-- EXPERIMENTAL MODAL & BUTTON -->
+
+    <p>
+      <button class="button" data-toggle="exampleModal8">
+        Click me for a full-screen modal
+      </button>
+    </p>
+
+    <div class="full reveal" id="exampleModal8" data-reveal>
+      <p>OH I'M SO FUUUUL</p>
+      <img src="https://placekitten.com/1920/1280" alt="Introspective Cage" />
+      <button
+        class="close-button"
+        data-close
+        aria-label="Close reveal"
+        type="button"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <p>
+      <button class="button" data-toggle="buysell">
+        Buy/Sell
+      </button>
+    </p>
 
     <script
       src="https://code.jquery.com/jquery-3.4.1.js"
@@ -143,5 +197,4 @@
     <script src="assets/js/index.js"></script>
     <script src="assets/js/coinmarketcapAPI.js"></script>
   </body>
-
 </html>
