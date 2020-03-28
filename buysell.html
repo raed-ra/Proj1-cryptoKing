@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crypto Kings</title>
+    <link rel="stylesheet" href="assets/css/app.css" />
+  </head>
+
+  <body>
+    <!-- TOP BUTTONS -->
+    <div class="expanded button-group">
+      <a class="button" data-open="cryptokings">BUY</a>
+      <a class="button" data-open="instructions">SELL</a>
+    </div>
+4
+    <!-- MAIN TABLE - COLUMN HEADINGS -->
+    <table>
+      <thead>
+        <tr>
+          <th>CRYPTO MARKET</th>
+          <th>24HR PRICE CHANGE (%)</th>
+          <th>CRYPTO VALUE (US$)</th>
+          <th>HOLDINGS VALUE (US$)</th>
+        </tr>
+      </thead>
+
+      <!-- MAING TABLE - ROWS -->
+      <tbody id="table-body">
+        <!-- <tr class="cryto-row">
+          <td class="td-symbol">BTC</td>
+          <td class="td-change">-5%</td>
+          <td class="td-price">8000</td>
+          <td class="td-holdings">
+            <p>
+              <button class="button td-holdings" data-open="buysell">
+                $0.00
+              </button>
+            </p>
+          </td>
+        </tr> -->
+      </tbody>
+    </table>
+    <!-- END - MAIN TABLE -->
+
+    <!-- POSITION SUMMARY (BANK, HOLDINGS, PROFIT/LOSS)  -->
+    <table>
+      <thead>
+        <tr>
+          <th>BANK</th>
+          <th>TOTAL HOLDINGS</th>
+          <th>PROFIT/LOSS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>AU $100,000.00</td>
+          <td>AU $0.00</td>
+          <td>AU $0.00</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="full reveal" id="exampleModal8" data-reveal>
+      <p>OH I'M SO FUUUUL</p>
+      <img src="https://placekitten.com/1920/1280" alt="Introspective Cage" />
+      <button
+        class="close-button"
+        data-close
+        aria-label="Close reveal"
+        type="button"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <p>
+      <button class="button" data-toggle="buysell">
+        Buy/Sell
+      </button>
+    </p>
+
+    <!-- BUY/SELL MODAL -->
+    <div class="reveal" id="buysell" data-reveal>
+      <h1>BUY OR SELL</h1>
+      <p class="lead">Lorem ipsum dolor sit amet.</p>
+      <p>
+        I'm a cool paragraph that lives inside of an even cooler modal. Wins!
+      </p>
+      <p>
+        <button class="button" data-toggle="exampleModal8">
+          Click me for a full-screen modal
+        </button>
+      </p>
+      <button
+        class="close-button"
+        data-close
+        aria-label="Close modal"
+        type="button"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"
+    ></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/index.js"></script>
+    <script src="assets/js/coinmarketcapAPI.js"></script>
+  </body>
+</html>
