@@ -9,68 +9,15 @@
   </head>
 
   <body>
-    <!-- <div class="flex-container align-center">
-      <ul class="code-menu menu">
-        <li class="code-menu-item is-active" data-toggle-html="">
-          <a href="#">HTML</a>
-        </li>
-        <li class="code-menu-item is-active" data-toggle-styles="">
-          <a href="#">SCSS</a>
-        </li>
-        <li class="code-menu-item is-active" data-toggle-js="">
-          <a href="#">JS</a>
-        </li>
-      </ul>
-    </div> -->
-
+    <!-- TOP BUTTONS -->
     <div class="expanded button-group">
       <a class="button" data-open="cryptokings">CRYPTO KINGS</a>
       <a class="button" data-open="instructions">INSTRUCTIONS</a>
       <a class="button" data-open="newgame">NEW GAME</a>
     </div>
 
-    <!-- ORIGINAL NAVBAR -->
-    <!-- <div class="top-bar-container" data-sticky-container>
-      <div
-        class="sticky sticky-topbar"
-        data-sticky
-        data-options="anchor: page; marginTop: 0; marginBottom: 1; stickyOn: small;"
-      >
-        <div class="top-bar">
-          <div class="top-bar-left">
-            <ul class="dropdown menu">
-              <li class="menu-text">CRYPTO KINGS</li>
-              <li>
-                <p>
-                  <button class="button">
-                    INSTRUCTIONS
-                  </button>
-                </p>
-              </li>
-              <li>
-                <p>
-                  <button class="button" data-open="exampleModal1">
-                    NEW GAME
-                  </button>
-                </p>
-              </li>
-            </ul>
-          </div> -->
-
-    <!-- DON'T NEED SEARCH ON NAVBAR - FOR NOW -->
-    <!-- <div class="top-bar-right">
-          <ul class="menu">
-            <li><input type="search" placeholder="Search"></li>
-            <li><button type="button" class="button">Search</button></li>
-          </ul>
-        </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- MAIN TABLE SHOWING CRYPTO PRICES -->
+    <!-- MAIN TABLE - COLUMN HEADINGS -->
     <table>
-      <!-- COLUMN HEADINGS -->
       <thead>
         <tr>
           <th>MARKET</th>
@@ -80,9 +27,9 @@
         </tr>
       </thead>
 
-      <!-- ROWS -->
+      <!-- MAING TABLE - ROWS -->
       <tbody id="table-body">
-        <tr class="cryto-row">
+        <!-- <tr class="cryto-row">
           <td class="td-symbol">BTC</td>
           <td class="td-change">-5%</td>
           <td class="td-price">8000</td>
@@ -93,21 +40,16 @@
               </button>
             </p>
           </td>
-
-          <!-- <td>
-            <p>
-              <button class="button td-buysell" data-open="exampleModal1">BUY/SELL</button>
-            </p>
-          </td> -->
-        </tr>
+        </tr> -->
       </tbody>
     </table>
+    <!-- END - MAIN TABLE -->
 
-    <!-- BOTTOM ROW SHOWING AVAILABLE FUNDS; TOTAL HOLDINGS; PROFIT/LOSS (ALL IN AU$)  -->
+    <!-- POSITION SUMMARY (BANK, HOLDINGS, PROFIT/LOSS)  -->
     <table>
       <thead>
         <tr>
-          <th>AVAILABLE FUNDS</th>
+          <th>BANK</th>
           <th>TOTAL HOLDINGS</th>
           <th>PROFIT/LOSS</th>
         </tr>
@@ -121,7 +63,7 @@
       </tbody>
     </table>
 
-    <!-- MODAL PLACE HOLDER (CURRENTLY LINKED TO "INSTRUCTIONS" AND "BUY/SELL" BUTTONS) -->
+    <!-- ABOUT CRYPTO KINGS MODAL -->
     <div class="reveal" id="cryptokings" data-reveal>
       <h1>ABOUT CRYPTO KINGS</h1>
       <p class="lead">Lorem ipsum dolor sit amet.</p>
@@ -138,7 +80,7 @@
       </button>
     </div>
 
-    <!-- MODAL PLACE HOLDER (CURRENTLY LINKED TO "INSTRUCTIONS" AND "BUY/SELL" BUTTONS) -->
+    <!-- INSTRUCTIONS MODAL -->
     <div class="reveal" id="instructions" data-reveal>
       <h1>INSTRUCTIONS</h1>
       <p class="lead">Lorem ipsum dolor sit amet.</p>
@@ -155,7 +97,7 @@
       </button>
     </div>
 
-    <!-- MODAL PLACE HOLDER (CURRENTLY LINKED TO "INSTRUCTIONS" AND "BUY/SELL" BUTTONS) -->
+    <!-- NEW GAME MODAL -->
     <div class="reveal" id="newgame" data-reveal>
       <h1>NEW GAME</h1>
       <p class="lead">Are you sure you wan't to start a new game?!</p>
@@ -172,7 +114,7 @@
       </button>
     </div>
 
-    <!-- MODAL PLACE HOLDER (CURRENTLY LINKED TO "INSTRUCTIONS" AND "BUY/SELL" BUTTONS) -->
+    <!-- BUY/SELL MODAL -->
     <div class="reveal" id="buysell" data-reveal>
       <h1>BUY OR SELL</h1>
       <p class="lead">Lorem ipsum dolor sit amet.</p>
