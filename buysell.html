@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
+  
   <head>
     <meta charset="utf-8" />
 
@@ -10,98 +11,169 @@
   </head>
 
   <body>
-    <!-- TOP BUTTONS -->
-    <div class="expanded button-group">
-      <a class="button" data-open="cryptokings">BUY</a>
-      <a class="button" data-open="instructions">SELL</a>
-    </div>
-4
-    <!-- MAIN TABLE - COLUMN HEADINGS -->
-    <table>
-      <thead>
-        <tr>
-          <th>CRYPTO MARKET</th>
-          <th>24HR PRICE CHANGE (%)</th>
-          <th>CRYPTO VALUE (US$)</th>
-          <th>HOLDINGS VALUE (US$)</th>
-        </tr>
-      </thead>
+    <div class="callout">
+      <!-- TOP BUTTONS -->
+      <div class="expanded button-group">
+        <a class="button" data-open="cryptokings">BUY</a>
+        <div class="switch large">
+          <input
+            class="switch-input"
+            id="largeSwitch"
+            type="checkbox"
+            name="exampleSwitch"
+          />
+          <label class="switch-paddle" for="largeSwitch">
+            <span class="show-for-sr">Show Large Elephants</span>
+          </label>
+        </div>
+        <a class="button" data-open="instructions">SELL</a>
+      </div>
 
-      <!-- MAING TABLE - ROWS -->
-      <tbody id="table-body">
-        <!-- <tr class="cryto-row">
-          <td class="td-symbol">BTC</td>
-          <td class="td-change">-5%</td>
-          <td class="td-price">8000</td>
-          <td class="td-holdings">
-            <p>
-              <button class="button td-holdings" data-open="buysell">
-                $0.00
-              </button>
-            </p>
-          </td>
-        </tr> -->
-      </tbody>
-    </table>
-    <!-- END - MAIN TABLE -->
+      <!-- MAIN TABLE - COLUMN HEADINGS -->
+      <table>
+        <thead>
+          <tr>
+            <th>CRYPTO MARKET</th>
+            <th>24HR PRICE CHANGE (%)</th>
+            <th>CRYPTO VALUE (US$)</th>
+            <th>HOLDINGS VALUE (US$)</th>
+          </tr>
+        </thead>
+        <!-- MAIN TABLE - ROWS -->
+        <tbody id="table-body"></tbody>
+      </table>
+      <!-- END - MAIN TABLE -->
 
-    <!-- POSITION SUMMARY (BANK, HOLDINGS, PROFIT/LOSS)  -->
-    <table>
-      <thead>
-        <tr>
-          <th>BANK</th>
-          <th>TOTAL HOLDINGS</th>
-          <th>PROFIT/LOSS</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>AU $100,000.00</td>
-          <td>AU $0.00</td>
-          <td>AU $0.00</td>
-        </tr>
-      </tbody>
-    </table>
+      <!-- POSITION SUMMARY (BANK, HOLDINGS, PROFIT/LOSS)  -->
+      <table>
+        <thead>
+          <tr>
+            <th>BANK</th>
+            <th>TOTAL HOLDINGS</th>
+            <th>PROFIT/LOSS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>AU $100,000.00</td>
+            <td>AU $0.00</td>
+            <td>AU $0.00</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- end POSITION SUMMARY (BANK, HOLDINGS, PROFIT/LOSS)  -->
 
-    <div class="full reveal" id="exampleModal8" data-reveal>
-      <p>OH I'M SO FUUUUL</p>
-      <img src="https://placekitten.com/1920/1280" alt="Introspective Cage" />
-      <button
-        class="close-button"
-        data-close
-        aria-label="Close reveal"
-        type="button"
-      >
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
+      <!-- FULL SCREEN NESTED MODAL EXAMPLE  -->
+      <div class="full reveal" id="exampleModal8" data-reveal>
+        <p>
+          ## FULL SCREEN MODAL ## FULL SCREEN MODAL ## FULL SCREEN MODAL ## FULL
+          SCREEN MODAL ## FULL SCREEN MODAL ## FULL SCREEN MODAL ## FULL SCREEN
+          MODAL ## FULL SCREEN MODAL ##
+        </p>
+        <img src="https://placekitten.com/1920/1280" alt="Introspective Cage" />
+        <button
+          class="close-button"
+          data-close
+          aria-label="Close reveal"
+          type="button"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <!-- end FULL SCREEN NESTED MODAL EXAMPLE  -->
 
-    <p>
-      <button class="button" data-toggle="buysell">
-        Buy/Sell
-      </button>
-    </p>
-
-    <!-- BUY/SELL MODAL -->
-    <div class="reveal" id="buysell" data-reveal>
-      <h1>BUY OR SELL</h1>
-      <p class="lead">Lorem ipsum dolor sit amet.</p>
+      <!-- BUTTON - OPEN CANDLESTICK MODAL -->
       <p>
-        I'm a cool paragraph that lives inside of an even cooler modal. Wins!
-      </p>
-      <p>
-        <button class="button" data-toggle="exampleModal8">
-          Click me for a full-screen modal
+        <button class="button" data-toggle="example-modal-regular">
+          OPENS MODAL WITH CANDLESTICK CHART &OR OTHER INFO
         </button>
       </p>
-      <button
-        class="close-button"
-        data-close
-        aria-label="Close modal"
-        type="button"
-      >
-        <span aria-hidden="true">&times;</span>
-      </button>
+      <!-- end BUTTON - OPEN CANDLESTICK MODAL -->
+
+      <!-- CANDLESTICK MODAL -->
+      <div class="reveal" id="example-modal-regular" data-reveal>
+        <h1>BTC</h1>
+        <p class="lead">
+          WARNING! you're local machine has now been infected with coronavirus
+        </p>
+        <div class="responsive-embed">
+          <iframe
+            width="100"
+            height="75"
+            src="img/candleStick.png"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <p>
+          Images, madia, and possibly Raed's candlestick chart could go here.
+        </p>
+        <p>
+          <button class="button" data-toggle="exampleModal8">
+            Click me for a full-screen modal
+          </button>
+        </p>
+        <button
+          class="close-button"
+          data-close
+          aria-label="Close modal"
+          type="button"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <!-- CANDLESTICK MODAL -->
+
+      <!-- CHECK OK MODAL -->
+      <div class="reveal" id="example-modal-checkOK" data-reveal>
+        <h1>ARE YOU SURE?</h1>
+        <p class="lead">
+          Click OK to place the order or CANCEL to cancel the order.
+        </p>
+
+        <div class="expanded button-group">
+          <a class="button" data-open="ok">OK</a>
+          <a class="button" data-open="cancel">CANCEL</a>
+        </div>
+
+        <button
+          class="close-button"
+          data-close
+          aria-label="Close modal"
+          type="button"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <!-- end CHECK OK MODAL -->
+
+      <!-- ###### QTY SLIDER #####-->
+      <div class="slider" data-slider data-initial-start="50" data-end="200">
+        <span
+          class="slider-handle"
+          data-slider-handle
+          role="slider"
+          tabindex="1"
+        ></span>
+        <span class="slider-fill" data-slider-fill></span>
+        <input type="hidden" />
+      </div>
+      <!-- ###### end QTY SLIDER #####-->
+
+      <form>
+        <label>
+          How many puppies?
+          <input type="number" value="100" />
+        </label>
+      </form>
+
+      <p>
+        <button class="button" data-toggle="example-modal-checkOK">
+          OK TO BUY/SELL ORDER
+        </button>
+      </p>
+
+      <!-- ###### end FORMS #####-->
     </div>
 
     <script
