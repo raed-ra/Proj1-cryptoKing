@@ -25,6 +25,7 @@ function createRow(symbolData){
     var tdChange = $("<td>").addClass("td-change").text(symbolData.quote.USD.percent_change_24h)
     var tdPrice = $("<td>").addClass("td-price").text(symbolData.quote.USD.price)
     var tdHoldings = $("<td>").addClass("button td-holdings").text("$0.00")
+    // var tdHoldingsModal = $("<div>").addClass("reveal").attr("data-toggle="buysell") **Add MODAL - probably discard
 
     row.append(tdSymbol, tdChange, tdPrice, tdHoldings)
 
