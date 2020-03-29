@@ -71,21 +71,16 @@ function buy() {
   var holdings = JSON.parse(localStorage.getItem("holdings"));
   var prices = JSON.parse(localStorage.getItem("cryptoprices"));
   var symbol = localStorage.getItem("symbol");
-  console.log((prices[symbol]*buyamount > bankValue))
   if (prices[symbol]*buyamount > bankValue) {
     $(".messages").addClass("callout alert").text("Not enough cash in bank to make this transaction!")
   } else {
-    var bankValue = bankValue - prices[symbol]*buyamount ;
-    var Newholdings = holdings;
-    console.log(NewbankValue)
-    console.log(Newholdings)
+    bankValue = bankValue - prices[symbol]*buyamount ;
     holdings[symbol] = holdings[symbol] + buyamount;
-    console.log(Newholdings)
   }
-  localStorage.setItem("bank",NewbankValue);
-  localStorage.setItem("holdings",JSON.stringify(Newholdings));
+  localStorage.setItem("bank",bankValue);
+  localStorage.setItem("holdings",JSON.stringify(holdings));
   createResults(prices);
-  holdingupdate(Newholdings);
+  holdingupdate(holdings);
 }
 
 //trigger sell function
@@ -102,22 +97,19 @@ function sell() {
   if (sellamount > holdings[symbol]) {
     $(".messages").addClass("callout alert").text("Not enough holdings to make this transaction!")
   } else {
-    var NewbankValue = bankValue + prices[symbol]*sellamount ;
-    var Newholdings = holdings 
-    Newholdings[symbol] = holdings[symbol] - sellamount;
+    bankValue = bankValue + prices[symbol]*sellamount ;
+    holdings[symbol] = holdings[symbol] - sellamount;
   }
-  localStorage.setItem("bank",NewbankValue);
-  localStorage.setItem("holdings",JSON.stringify(Newholdings));
+  localStorage.setItem("bank",bankValue);
+  localStorage.setItem("holdings",JSON.stringify(holdings));
   createResults(prices)
-  holdingupdate(Newholdings);
+  holdingupdate(holdings);
 }
 
 //updates holdings on dashboard after buy/sell activity
 function holdingupdate(Newholdings) {
   var holdings = Newholdings;
   $.each(holdings,function(key,value) {
-    console.log(key)
-    console.log(value)
     $("td#"+key).text(value)
   });
 }
@@ -150,14 +142,9 @@ function createResults(prices){
     var holdingsValue = 0
     var profitloss
     var mul
-    console.log(holdings)
     $.each(holdings,function(key,value) {
-        console.log(value);
-        console.log(prices[key]);
         mul = value * prices[key];
-        //console.log(mul);
         holdingsValue += mul ;
-        //console.log(holdingsValue);
     } ); 
     var profitloss = (((holdingsValue+bankValue)-100000)/100000)*100; 
     var row = $("<tr>").addClass("result-row")
