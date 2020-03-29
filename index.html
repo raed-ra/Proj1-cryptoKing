@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Crypto Kings</title>
     <link rel="stylesheet" href="assets/css/app.css" />
+    <link rel="stylesheet" type="text/css" href="https://rawgit.com/jamesleesaunders/d3.ez/master/dist/d3-ez.css" />
   </head>
 
   <body>
@@ -20,13 +21,14 @@
 
     <!-- MAIN TABLE - COLUMN HEADINGS -->
     <table>
-      <thead>
-        <tr>
+      <thead id="table-heading">
+        <!-- <tr>
           <th>CRYPTO MARKET</th>
           <th>24HR PRICE CHANGE (%)</th>
           <th>CRYPTO VALUE (US$)</th>
           <th>HOLDINGS VALUE (US$)</th>
-        </tr>
+          <th>BUY/SELL</th>
+        </tr> -->
       </thead>
 
       <!-- MAING TABLE - ROWS -->
@@ -49,16 +51,18 @@
 
     <!-- POSITION SUMMARY (BANK, HOLDINGS, PROFIT/LOSS)  -->
     <table>
-      <thead>
-        <tr>
+      <thead id="result-heading">
+        <!-- <tr>
           <th>BANK</th>
           <th>TOTAL HOLDINGS</th>
           <th>PROFIT/LOSS</th>
-        </tr>
+        </tr> -->
       </thead>
       <tbody id="results">
       </tbody>
     </table>
+
+    <td id="chartholder"></td>
 
     <!-- ABOUT CRYPTO KINGS MODAL -->
     <div class="reveal" id="cryptokings" data-reveal>
@@ -122,7 +126,7 @@
       <h1>NEW GAME</h1>
       <p class="lead">Are you sure you wan't to start a new game?!</p>
       <p>
-        I'm a cool paragraph that lives inside of an even cooler modal. Wins!
+        Bank will be 100000! with Zero holdings.
       </p>
       <button
         class="close-button"
@@ -132,33 +136,179 @@
       >
         <span aria-hidden="true">&times;</span>
       </button>
+      <a class="button" data-open="successfull" id="new">Confirm</a>
     </div>
 
     <!-- BUY/SELL MODAL -->
     <div class="reveal" id="buysell" data-reveal>
-      <h1>BUY OR SELL</h1>
-      <p class="lead">Lorem ipsum dolor sit amet.</p>
-      <p>
-        I'm a cool paragraph that lives inside of an even cooler modal. Wins!
-      </p>
-      <p>
-        <button class="button" data-toggle="exampleModal8">
-          Click me for a full-screen modal
-        </button>
-      </p>
-      <button
-        class="close-button"
-        data-close
-        aria-label="Close modal"
-        type="button"
-      >
-        <span aria-hidden="true">&times;</span>
-      </button>
+
+      <div class="callout">
+        <!-- TOP BUTTONS -->
+        <div class="expanded button-group">
+          <a class="button" data-open="successfullbuy" id="buy">BUY</a>
+          <!-- <div class="switch large">
+            <input
+              class="switch-input"
+              id="largeSwitch"
+              type="checkbox"
+              name="exampleSwitch"
+            />
+            <label class="switch-paddle" for="largeSwitch">
+              <span class="show-for-sr">Show Large Elephants</span>
+            </label>
+          </div> -->
+          <a class="button" data-open="successfullsell" id="sell">SELL</a>
+        </div>
+        <div class="modaltitle"></div> 
+        <div id="chartholder"></div>
+  
+        <!-- MAIN TABLE - COLUMN HEADINGS -->
+        
+        <!-- end POSITION SUMMARY (BANK, HOLDINGS, PROFIT/LOSS)  -->
+  
+        <!-- FULL SCREEN NESTED MODAL EXAMPLE  -->
+        <!-- <div class="full reveal" id="exampleModal8" data-reveal>
+          <p>
+            ## FULL SCREEN MODAL ## FULL SCREEN MODAL ## FULL SCREEN MODAL ## FULL
+            SCREEN MODAL ## FULL SCREEN MODAL ## FULL SCREEN MODAL ## FULL SCREEN
+            MODAL ## FULL SCREEN MODAL ##
+          </p>
+          <img src="https://placekitten.com/1920/1280" alt="Introspective Cage" />
+          <button
+            class="close-button"
+            data-close
+            aria-label="Close reveal"
+            type="button"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div> -->
+        <!-- end FULL SCREEN NESTED MODAL EXAMPLE  -->
+  
+        <!-- BUTTON - OPEN CANDLESTICK MODAL -->
+        <!-- <p>
+          <button class="button" data-toggle="example-modal-regular">
+            OPENS MODAL WITH CANDLESTICK CHART &OR OTHER INFO
+          </button>
+        </p> -->
+        
+        <!-- end BUTTON - OPEN CANDLESTICK MODAL -->
+  
+        <!-- CANDLESTICK MODAL -->
+        <!-- <div class="reveal" id="example-modal-regular" data-reveal>
+          <h1>BTC</h1>
+          <p class="lead">
+            WARNING! you're local machine has now been infected with coronavirus
+          </p>
+          <div class="responsive-embed">
+            <iframe
+              width="100"
+              height="75"
+              src="img/candleStick.png"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <p>
+            Images, madia, and possibly Raed's candlestick chart could go here.
+          </p>
+          <p>
+            <button class="button" data-toggle="exampleModal8">
+              Click me for a full-screen modal
+            </button>
+          </p>
+          <button
+            class="close-button"
+            data-close
+            aria-label="Close modal"
+            type="button"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div> -->
+        <!-- CANDLESTICK MODAL -->
+  
+        <!-- CHECK OK MODAL -->
+        <!-- <div class="reveal" id="example-modal-checkOK" data-reveal>
+          <h1>ARE YOU SURE?</h1>
+          <p class="lead">
+            Click OK to place the order or CANCEL to cancel the order.
+          </p>
+  
+          <div class="expanded button-group">
+            <a class="button" data-open="ok">OK</a>
+            <a class="button" data-open="cancel">CANCEL</a>
+          </div>
+  
+          <button
+            class="close-button"
+            data-close
+            aria-label="Close modal"
+            type="button"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div> -->
+        <!-- end CHECK OK MODAL -->
+  
+        <!-- ###### QTY SLIDER #####-->
+        <!-- <div class="slider" data-slider data-initial-start="50" data-end="200">
+          <span
+            class="slider-handle"
+            data-slider-handle
+            role="slider"
+            tabindex="1"
+          ></span>
+          <span class="slider-fill" data-slider-fill></span>
+          <input type="hidden" />
+        </div> -->
+        <!-- ###### end QTY SLIDER #####-->
+  
+        <form>
+          <label>
+            How many puppies?
+            <input type="number" placeholder="How many?" id="quantity"/>
+          </label>
+          <div class=messages></div>
+        </form>
+  
+        <!-- <p>
+          <button class="button" data-toggle="example-modal-checkOK">
+            OK TO BUY/SELL ORDER
+          </button>
+        </p> -->
+  
+        <!-- ###### end FORMS #####-->
+      </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <!-- EXPERIMENTAL MODAL & BUTTON -->
 
-    <p>
+    <!-- <p>
       <button class="button" data-toggle="exampleModal8">
         Click me for a full-screen modal
       </button>
@@ -181,15 +331,19 @@
       <button class="button" data-toggle="buysell">
         Buy/Sell
       </button>
-    </p>
+    </p> -->
 
     <script
-      src="https://code.jquery.com/jquery-3.4.1.js"
-      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-      crossorigin="anonymous"
-    ></script>
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="assets/js/app.js"></script>
     <script src="assets/js/index.js"></script>
     <script src="assets/js/coinmarketcapAPI.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://raw.githack.com/jamesleesaunders/d3-ez/master/dist/d3-ez.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
   </body>
 </html>
