@@ -82,7 +82,7 @@
     </div>
 
     <!-- INSTRUCTIONS MODAL -->
-    <div class="full reveal" id="instructions" data-reveal>
+    <div class="reveal" id="instructions" data-reveal>
       <h1>INSTRUCTIONS</h1>
       <p class="lead">Sharpen your crypto trading skills with Crypto Kings.</p>
       <p class="lead">Watch your virtual money pile up or go bust trying!</p>
@@ -92,8 +92,9 @@
         interested in.
       </p>
       <p>
-        2. In the popup window, select either the BUY or SELL mode and then
-        enter the amount you’d like to buy or sell.
+        2. In the popup window, enter the amount of cryptocurrency that you 
+        would like to buy or sell and then click either the buy or sell button
+        to execute the trade.
       </p>
       <p>
         3. Your buying capacity is limited by the funds you have remaining in
@@ -124,9 +125,9 @@
     <!-- NEW GAME MODAL -->
     <div class="reveal" id="newgame" data-reveal>
       <h1>NEW GAME</h1>
-      <p class="lead">Are you sure you wan't to start a new game?!</p>
+      <p class="lead">Are you sure you want to start a new game?!</p>
       <p>
-        Bank will be 100000! with Zero holdings.
+        The bank will be reset to $100,000 (USD)! with Zero holdings.
       </p>
       <button
         class="close-button"
@@ -146,17 +147,6 @@
         <!-- TOP BUTTONS -->
         <div class="expanded button-group">
           <a class="button" data-open="successfullbuy" id="buy">BUY</a>
-          <!-- <div class="switch large">
-            <input
-              class="switch-input"
-              id="largeSwitch"
-              type="checkbox"
-              name="exampleSwitch"
-            />
-            <label class="switch-paddle" for="largeSwitch">
-              <span class="show-for-sr">Show Large Elephants</span>
-            </label>
-          </div> -->
           <a class="button" data-open="successfullsell" id="sell">SELL</a>
         </div>
         <div class="modaltitle"></div> 
@@ -165,68 +155,6 @@
         <!-- MAIN TABLE - COLUMN HEADINGS -->
         
         <!-- end POSITION SUMMARY (BANK, HOLDINGS, PROFIT/LOSS)  -->
-  
-        <!-- FULL SCREEN NESTED MODAL EXAMPLE  -->
-        <!-- <div class="full reveal" id="exampleModal8" data-reveal>
-          <p>
-            ## FULL SCREEN MODAL ## FULL SCREEN MODAL ## FULL SCREEN MODAL ## FULL
-            SCREEN MODAL ## FULL SCREEN MODAL ## FULL SCREEN MODAL ## FULL SCREEN
-            MODAL ## FULL SCREEN MODAL ##
-          </p>
-          <img src="https://placekitten.com/1920/1280" alt="Introspective Cage" />
-          <button
-            class="close-button"
-            data-close
-            aria-label="Close reveal"
-            type="button"
-          >
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div> -->
-        <!-- end FULL SCREEN NESTED MODAL EXAMPLE  -->
-  
-        <!-- BUTTON - OPEN CANDLESTICK MODAL -->
-        <!-- <p>
-          <button class="button" data-toggle="example-modal-regular">
-            OPENS MODAL WITH CANDLESTICK CHART &OR OTHER INFO
-          </button>
-        </p> -->
-        
-        <!-- end BUTTON - OPEN CANDLESTICK MODAL -->
-  
-        <!-- CANDLESTICK MODAL -->
-        <!-- <div class="reveal" id="example-modal-regular" data-reveal>
-          <h1>BTC</h1>
-          <p class="lead">
-            WARNING! you're local machine has now been infected with coronavirus
-          </p>
-          <div class="responsive-embed">
-            <iframe
-              width="100"
-              height="75"
-              src="img/candleStick.png"
-              frameborder="0"
-              allowfullscreen
-            ></iframe>
-          </div>
-          <p>
-            Images, madia, and possibly Raed's candlestick chart could go here.
-          </p>
-          <p>
-            <button class="button" data-toggle="exampleModal8">
-              Click me for a full-screen modal
-            </button>
-          </p>
-          <button
-            class="close-button"
-            data-close
-            aria-label="Close modal"
-            type="button"
-          >
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div> -->
-        <!-- CANDLESTICK MODAL -->
   
         <!-- CHECK OK MODAL -->
         <!-- <div class="reveal" id="example-modal-checkOK" data-reveal>
@@ -266,7 +194,7 @@
   
         <form>
           <label>
-            How many puppies?
+            How many coins?
             <input type="number" placeholder="How many?" id="quantity" value="0"/>
           </label>
           <div class=messages></div>
@@ -327,7 +255,6 @@
     crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="assets/js/app.js"></script>
-    <script src="assets/js/index.js"></script>
     <script src="assets/js/coinmarketcapAPI.js"></script>
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="https://raw.githack.com/jamesleesaunders/d3-ez/master/dist/d3-ez.js"></script>

@@ -3,21 +3,44 @@
 
 var data = `"{"id":1,"name":"Bitcoin","symbol":"BTC","slug":"bitcoin","num_market_pairs":7919,"date_added":"2013-04-28T00:00:00.000Z","tags":["mineable"],"max_supply":21000000,"circulating_supply":17906012,"total_supply":17906012,"platform":null,"cmc_rank":1,"last_updated":"2019-08-30T18:51:28.000Z","quote":{"USD":{"price":9558.55163723,"volume_24h":13728947008.2722,"percent_change_1h":-0.127291,"percent_change_24h":0.328918,"percent_change_7d":-8.00576,"market_cap":171155540318.86005,"last_updated":"2019-08-30T18:51:28.000Z"}}}"`
 var finddata
-var cryptoIndex = ["BTC","ETH","XRP","BCH","LTC","USDT","EOS","BNB","BSV","XLM"]
+var cryptoIndex = ["BTC","ETH","XRP","BCH","LTC","EOS","BNB","BSV","XLM","XMR"]
 var holdings = {} //= JSON.parse(localStorage.getItem("holdings"))
 // var initialBankValue = 100000
 // var bankValue = initialBankValue;
 // localStorage.setItem("bank",bankValue);
 //var bankValue = 60000
 
+function initialise(){
+  if (localStorage.getItem("holdings")){
+    loadGame()
+  }
+  else {
+    newgame()
+  }
+}
 
+function loadGame(){
+  var row = $("<tr>")
+  var tdBank = $("<td>").text("BANK")
+  var tdHoldings = $("<td>").text("TOTAL HOLDINGS")
+  var tdProfitLoss = $("<td>").text("PROFIT/LOSS")
+  row.append(tdBank, tdHoldings, tdProfitLoss)
+  $("#result-heading").html("")
+  $("#result-heading").append(row)
+
+  $("#table-body").html("")
+
+  dashboardupdate();
+}
+
+$(document).ready(initialise)
 
 $(document).on("click", "#new", newgame);
 
 //resets all the holdings and bank, it also creates all the headers
 function newgame() {
   event.preventDefault()
-  var holdings = {"BTC":0,"ETH":0,"XRP":0,"BCH":0,"LTC":0,"USDT":0,"EOS":0,"BNB":0,"BSV":0,"XLM":0}
+  var holdings = {"BTC":0,"ETH":0,"XRP":0,"BCH":0,"LTC":0,"EOS":0,"BNB":0,"BSV":0,"XLM":0,"XMR":0}
   localStorage.setItem("holdings",JSON.stringify(holdings))
   var NewbankValue = 100000
   localStorage.setItem("bank",NewbankValue);
@@ -124,7 +147,7 @@ function createRow(symbolData){
     } else {
       var tdChange = $("<td>").addClass("td-change callout success").text(symbolData.quote.USD.percent_change_24h.toFixed(2)+"%");
     }
-    var tdPrice = $("<td>").addClass("td-price").text("$"+symbolData.quote.USD.price.toFixed(2)+" USD")
+    var tdPrice = $("<td>").addClass("td-price").text(Number(symbolData.quote.USD.price.toFixed(2)).toLocaleString('en-US', {style:'currency', currency:'USD'})+" (USD)")
     var tdHoldings = $("<td>").addClass("td-holdings").attr("id",symbolData.symbol).text(holdings[symbolData.symbol])
     var tdHoldingsModal = $("<button>").addClass("button buysell").attr("data-open", "buysell").attr("symbol-name",symbolData.symbol).text("Buy/Sell")
     row.append(tdSymbol, tdChange, tdPrice, tdHoldings, tdHoldingsModal)
@@ -146,11 +169,11 @@ function createResults(prices){
         mul = value * prices[key];
         holdingsValue += mul ;
     } ); 
-    var profitloss = (((holdingsValue+bankValue)-100000)/100000)*100; 
+    var profitloss = ((holdingsValue+bankValue)-100000); 
     var row = $("<tr>").addClass("result-row")
-    var tdBank = $("<td>").addClass("td-bank").text("$"+bankValue.toFixed(2)+ " USD")
-    var tdHoldings = $("<td>").addClass("td-holdingsvalue").text("$"+holdingsValue.toFixed(2)+" USD")
-    var tdProfitLoss = $("<td>").addClass("td-profitloss").text(profitloss.toFixed(2)+"%")
+    var tdBank = $("<td>").addClass("td-bank").text(Number(bankValue.toFixed(2)).toLocaleString('en-US', {style:'currency', currency:'USD'})+ " (USD)")
+    var tdHoldings = $("<td>").addClass("td-holdingsvalue").text(Number(holdingsValue.toFixed(2)).toLocaleString('en-US', {style:'currency', currency:'USD'})+" (USD)")
+    var tdProfitLoss = $("<td>").addClass("td-profitloss").text(Number(profitloss.toFixed(2)).toLocaleString('en-US', {style:'currency', currency:'USD'})+" (USD)")
   row.append(tdBank, tdHoldings, tdProfitLoss)
   $("#results").html("")
   $("#results").append(row)
@@ -167,9 +190,9 @@ function createResults(prices){
 function dashboardupdate() { 
     $.ajax({
       type: "GET",
-      url: "https://cors-anywhere.herokuapp.com/https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest",
+      url: "https://cors-anywhere.herokuapp.com/https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest",
       headers: {
-        "X-CMC_PRO_API_KEY": "1845c480-f9a5-436d-8fab-a2017e14fa3c" 
+        "X-CMC_PRO_API_KEY": "8e587202-8c78-4531-83ca-5b7067c87805" 
       },
       data: {}, 
       success: function(response) {
