@@ -16,6 +16,8 @@ This is a demo game simulating real trading - no real money is involved... yet! 
 ## Resources
 https://coinmarketcap.com/
 https://www.cryptocompare.com/
+https://moment.js
+https://apexcharts.com/
 
 ## Getting Started
 Instructions detailing the process of getting started in the game can be found in the Instructions tab.
