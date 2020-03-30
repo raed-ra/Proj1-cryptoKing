@@ -21,6 +21,16 @@ function initialise(){
 
 function loadGame(){
   var row = $("<tr>")
+  var tdSymbol = $("<td>").text("CRYPTO MARKET")
+  var tdChange = $("<td>").text("1HR PRICE CHANGE (%)");
+  var tdPrice = $("<td>").text("CRYPTO VALUE (US$)")
+  var tdHoldings = $("<td>").text("HOLDINGS VALUE (US$)")
+  var tdHoldingsModal = $("<td>").text("BUY/SELL")
+  row.append(tdSymbol, tdChange, tdPrice, tdHoldings, tdHoldingsModal)
+  $("#table-heading").html("")
+  $("#table-heading").append(row)
+
+  var row = $("<tr>")
   var tdBank = $("<td>").text("BANK")
   var tdHoldings = $("<td>").text("TOTAL HOLDINGS")
   var tdProfitLoss = $("<td>").text("PROFIT/LOSS")
@@ -46,7 +56,7 @@ function newgame() {
   localStorage.setItem("bank",NewbankValue);
   var row = $("<tr>")
   var tdSymbol = $("<td>").text("CRYPTO MARKET")
-  var tdChange = $("<td>").text("24HR PRICE CHANGE (%)");
+  var tdChange = $("<td>").text("1HR PRICE CHANGE (%)");
   var tdPrice = $("<td>").text("CRYPTO VALUE (US$)")
   var tdHoldings = $("<td>").text("HOLDINGS VALUE (US$)")
   var tdHoldingsModal = $("<button>").text("BUY/SELL")
