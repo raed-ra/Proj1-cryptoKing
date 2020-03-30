@@ -17,7 +17,7 @@ $(document).on("click", "#new", newgame);
 //resets all the holdings and bank, it also creates all the headers
 function newgame() {
   event.preventDefault()
-  var holdings = {"BTC":2,"ETH":20,"XRP":30,"BCH":40,"LTC":50,"USDT":60,"EOS":70,"BNB":80,"BSV":90,"XLM":100}
+  var holdings = {"BTC":0,"ETH":0,"XRP":0,"BCH":0,"LTC":0,"USDT":0,"EOS":0,"BNB":0,"BSV":0,"XLM":0}
   localStorage.setItem("holdings",JSON.stringify(holdings))
   var NewbankValue = 100000
   localStorage.setItem("bank",NewbankValue);
@@ -270,6 +270,7 @@ $('#1').off().on('click', function() {
   getprice(symbol1,currency1)
 });
 
+//gets the exchange rates and prices for a particular currency
 function getprice(symbol,currency) { 
   var APIKey = "f6c04b8c1b5d332df2dc000cf67455fc99d7ca2d00cc1d33a85e818756a85988";
   queryURL = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=" + symbol + "&tsyms=" + currency + "&api_key=" + APIKey;
