@@ -261,3 +261,47 @@ function gethistoryprice(symbol) {
   
 };
 
+$('#1').off().on('click', function() { 
+  event.preventDefault();
+  var symbol1 = localStorage.getItem("symbol"); 
+  var currency1 = $(".currency1").val().trim(); 
+  console.log(symbol1)
+  console.log(currency1)
+  getprice(symbol1,currency1)
+});
+
+function getprice(symbol,currency) { 
+  var APIKey = "f6c04b8c1b5d332df2dc000cf67455fc99d7ca2d00cc1d33a85e818756a85988";
+  queryURL = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=" + symbol + "&tsyms=" + currency + "&api_key=" + APIKey;
+  console.log(queryURL)
+    $.ajax({
+    url: queryURL,
+    method: "GET"
+    })
+      .then(function(response) {
+      spotdata = response;
+      //var formattedChange;
+      console.log(spotdata)
+      price = parseFloat(spotdata.RAW[symbol][currency].PRICE)
+      //changePCT = parseFloat(spotdata.RAW[symbol][currency].CHANGEPCT24HOUR)
+      //formattedChange = changePCT.toFixed(2) 
+      var formattedPrice = price.toFixed(2) 
+      var transamount = parseFloat($("#quantity").val().trim());
+      //console.log(formattedChange)
+      console.log(formattedPrice)
+      console.log(currency)
+      formattedPrice = transamount * formattedPrice;
+      //$(".change1").text(formattedChange+"%")
+      $("#price1").text(formattedPrice + " " + currency);
+      //$(".change1").html(formattedChange+"%")
+      // console.log(formattedChange < 0)
+      // if (formattedChange < 0) {
+      //   $("#change1").addClass("callout alert");
+      //   $("#change1").text(formattedChange+"%")
+      // } else {
+      //   $("#change1").addClass("callout success");
+      //   $("#change1").text(formattedChange+"%")
+      // }
+
+      });
+};
