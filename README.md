@@ -14,9 +14,12 @@ Dummy trading account
 This is a demo game simulating real trading - no real money is involved... yet! This release refers only to version 1.0 of our open source software.
 
 ## Resources
-https://coinmarketcap.com/
+https://coinmarketcap.com/ 
+
 https://www.cryptocompare.com/
+
 https://moment.js
+
 https://apexcharts.com/
 
 ## Getting Started
