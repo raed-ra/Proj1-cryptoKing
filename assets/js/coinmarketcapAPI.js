@@ -18,7 +18,7 @@ function loadGame(){
   var tdSymbol = $("<td>").text("CRYPTO MARKET");
   var tdChange = $("<td>").text("1 HR PRICE CHANGE (%)");
   var tdPrice = $("<td>").text("CRYPTO VALUE (US$)")
-  var tdHoldings = $("<td>").text("HOLDINGS VALUE (US$)")
+  var tdHoldings = $("<td>").text("HOLDINGS")
   var tdHoldingsModal = $("<td>").text("BUY/SELL")
   row.append(tdSymbol, tdChange, tdPrice, tdHoldings, tdHoldingsModal)
   $("#table-heading").append(row).addClass("container text-center");
@@ -50,7 +50,7 @@ function newgame() {
   var tdSymbol = $("<td>").text("CRYPTO MARKET").addClass("align-center");
   var tdChange = $("<td>").text("1 HR PRICE CHANGE (%)");
   var tdPrice = $("<td>").text("CRYPTO VALUE (US$)")
-  var tdHoldings = $("<td>").text("HOLDINGS VALUE (US$)")
+  var tdHoldings = $("<td>").text("HOLDINGS")
   var tdHoldingsModal = $("<button>").text("BUY/SELL")
   row.append(tdSymbol, tdChange, tdPrice, tdHoldings, tdHoldingsModal)
   $("#table-heading").html("")
@@ -72,7 +72,7 @@ function newgame() {
 $(document).on("click", ".buysell", buySellprep);
 
 //prepfunction upon modal opening for selling or buying - 
-// it registers which cryptocurrency the button belongs too and clears input boxes from before
+//It registers which cryptocurrency the button belongs too and clears input boxes from before
 function buySellprep() {
   event.preventDefault();
   $(".loader").removeClass("hide")
