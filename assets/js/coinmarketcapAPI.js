@@ -81,12 +81,10 @@ function buySellprep() {
   $(".messages").removeClass("callout alert").text("")
   $("#quantity").val("1")
   $("#priceEx").text("");
-  $("#chartholder").text("");
   localStorage.setItem("symbol",symbol);
   $(".modaltitle").text(symbol);
-  setTimeout(function() {
     gethistoryprice(symbol)
-}, 2000);
+  $("#chartholder").text("");
   var symbolex = localStorage.getItem("symbol"); 
   var currencyex = $(".currencyex").val().trim(); 
   getprice(symbolex,currencyex)
