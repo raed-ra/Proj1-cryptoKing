@@ -1,14 +1,8 @@
-
-
-
 var data = `"{"id":1,"name":"Bitcoin","symbol":"BTC","slug":"bitcoin","num_market_pairs":7919,"date_added":"2013-04-28T00:00:00.000Z","tags":["mineable"],"max_supply":21000000,"circulating_supply":17906012,"total_supply":17906012,"platform":null,"cmc_rank":1,"last_updated":"2019-08-30T18:51:28.000Z","quote":{"USD":{"price":9558.55163723,"volume_24h":13728947008.2722,"percent_change_1h":-0.127291,"percent_change_24h":0.328918,"percent_change_7d":-8.00576,"market_cap":171155540318.86005,"last_updated":"2019-08-30T18:51:28.000Z"}}}"`
 var finddata
 var cryptoIndex = ["BTC","ETH","XRP","BCH","LTC","EOS","BNB","BSV","XLM","XMR"]
-var holdings = {} //= JSON.parse(localStorage.getItem("holdings"))
-// var initialBankValue = 100000
-// var bankValue = initialBankValue;
-// localStorage.setItem("bank",bankValue);
-//var bankValue = 60000
+var holdings = {} 
+
 
 function initialise(){
   if (localStorage.getItem("holdings")){
@@ -20,25 +14,23 @@ function initialise(){
 }
 
 function loadGame(){
-  var row = $("<tr>")
-  var tdSymbol = $("<td>").text("CRYPTO MARKET")
-  var tdChange = $("<td>").text("24HR PRICE CHANGE (%)");
+  var row = $("<tr>").addClass("container text-center");
+  var tdSymbol = $("<td>").text("CRYPTO MARKET");
+  var tdChange = $("<td>").text("1 HR PRICE CHANGE (%)");
   var tdPrice = $("<td>").text("CRYPTO VALUE (US$)")
   var tdHoldings = $("<td>").text("HOLDINGS VALUE (US$)")
   var tdHoldingsModal = $("<td>").text("BUY/SELL")
   row.append(tdSymbol, tdChange, tdPrice, tdHoldings, tdHoldingsModal)
-  $("#table-heading").html("")
-  $("#table-heading").append(row)
+  $("#table-heading").append(row).addClass("container text-center");
 
   var row = $("<tr>")
   var tdBank = $("<td>").text("BANK")
   var tdHoldings = $("<td>").text("TOTAL HOLDINGS")
   var tdProfitLoss = $("<td>").text("PROFIT/LOSS")
   row.append(tdBank, tdHoldings, tdProfitLoss)
-  $("#result-heading").html("")
-  $("#result-heading").append(row)
-
-  $("#table-body").html("")
+  // $("#result-heading").html("")
+  $("#result-heading").append(row).addClass("container align-center");
+  // $("#table-body").html("").addClass("container text-center");
 
   dashboardupdate();
 }
@@ -55,16 +47,14 @@ function newgame() {
   var NewbankValue = 100000
   localStorage.setItem("bank",NewbankValue);
   var row = $("<tr>")
-  var tdSymbol = $("<td>").text("CRYPTO MARKET")
-  var tdChange = $("<td>").text("1HR PRICE CHANGE (%)");
+  var tdSymbol = $("<td>").text("CRYPTO MARKET").addClass("align-center");
+  var tdChange = $("<td>").text("1 HR PRICE CHANGE (%)");
   var tdPrice = $("<td>").text("CRYPTO VALUE (US$)")
   var tdHoldings = $("<td>").text("HOLDINGS VALUE (US$)")
   var tdHoldingsModal = $("<button>").text("BUY/SELL")
   row.append(tdSymbol, tdChange, tdPrice, tdHoldings, tdHoldingsModal)
   $("#table-heading").html("")
   $("#table-heading").append(row)
-  
-
   var row = $("<tr>")
   var tdBank = $("<td>").text("BANK")
   var tdHoldings = $("<td>").text("TOTAL HOLDINGS")
@@ -72,25 +62,34 @@ function newgame() {
   row.append(tdBank, tdHoldings, tdProfitLoss)
   $("#result-heading").html("")
   $("#result-heading").append(row)
-
   $("#table-body").html("")
-
+  var prices = JSON.parse(localStorage.getItem("cryptoprices"));
+  createResults(prices);
   dashboardupdate();
 }
-
-
-
 
 //triggers the sell/buy function when sell/buy function is pushed
 $(document).on("click", ".buysell", buySellprep);
 
-//prepfunction upon modal opening for selling or buying - it registers which cryptocurrency the button belongs too
+//prepfunction upon modal opening for selling or buying - 
+// it registers which cryptocurrency the button belongs too and clears input boxes from before
 function buySellprep() {
   event.preventDefault();
+  $(".loader").removeClass("hide")
+  $("#chartholder").addClass("hide")
   var symbol = $(this).attr("symbol-name");
+  $(".messages").removeClass("callout alert").text("")
+  $("#quantity").val("1")
+  $("#priceEx").text("");
+  $("#chartholder").text("");
   localStorage.setItem("symbol",symbol);
   $(".modaltitle").text(symbol);
-  gethistoryprice(symbol);
+  setTimeout(function() {
+    gethistoryprice(symbol)
+}, 2000);
+  var symbolex = localStorage.getItem("symbol"); 
+  var currencyex = $(".currencyex").val().trim(); 
+  getprice(symbolex,currencyex)
 }
 
 //trigger buy function
@@ -107,6 +106,7 @@ function buy() {
   if (prices[symbol]*buyamount > bankValue) {
     $(".messages").addClass("callout alert").text("Not enough cash in bank to make this transaction!")
   } else {
+    $(".messages").removeClass("callout alert").text("")
     bankValue = bankValue - prices[symbol]*buyamount ;
     holdings[symbol] = holdings[symbol] + buyamount;
   }
@@ -130,6 +130,7 @@ function sell() {
   if (sellamount > holdings[symbol]) {
     $(".messages").addClass("callout alert").text("Not enough holdings to make this transaction!")
   } else {
+    $(".messages").removeClass("callout alert").text("")
     bankValue = bankValue + prices[symbol]*sellamount ;
     holdings[symbol] = holdings[symbol] - sellamount;
   }
@@ -191,7 +192,7 @@ function createResults(prices){
     $(".td-profitloss").addClass("callout alert");
   } else {
     $(".td-profitloss").addClass("callout success");
-  }11
+  }
 }
 
 
@@ -247,9 +248,7 @@ function gethistoryprice(symbol) {
         //console.log(response);
         hdata = response;
         chartdata = hdata.Data.Data;
-        //console.log(chartdata);
-        //console.log(response[currency]);
-        //$(".price1").html(response[currency]);
+ 
         updated_chart_data = [];
         chartdata.forEach(function(d,i){
           //console.log(d.time);
@@ -285,22 +284,18 @@ function gethistoryprice(symbol) {
                 }
               }
         };
-
+          $(".loader").addClass("hide")
+          $("#chartholder").removeClass("hide")
           var chart = new ApexCharts(document.querySelector("#chartholder"), options);
-          chart.render();
-          
-         
+          chart.render();         
         });  
-  
 };
 
-$('#1').off().on('click', function() { 
+$('#exchangeBtn').off().on('click', function() { 
   event.preventDefault();
-  var symbol1 = localStorage.getItem("symbol"); 
-  var currency1 = $(".currency1").val().trim(); 
-  console.log(symbol1)
-  console.log(currency1)
-  getprice(symbol1,currency1)
+  var symbolex = localStorage.getItem("symbol"); 
+  var currencyex = $(".currencyex").val().trim(); 
+  getprice(symbolex,currencyex)
 });
 
 //gets the exchange rates and prices for a particular currency
@@ -326,16 +321,6 @@ function getprice(symbol,currency) {
       console.log(currency)
       formattedPrice = transamount * formattedPrice;
       //$(".change1").text(formattedChange+"%")
-      $("#price1").text(formattedPrice + " " + currency);
-      //$(".change1").html(formattedChange+"%")
-      // console.log(formattedChange < 0)
-      // if (formattedChange < 0) {
-      //   $("#change1").addClass("callout alert");
-      //   $("#change1").text(formattedChange+"%")
-      // } else {
-      //   $("#change1").addClass("callout success");
-      //   $("#change1").text(formattedChange+"%")
-      // }
-
+      $("#priceEx").text("Latest price: " + formattedPrice + " " + currency);
       });
 };
