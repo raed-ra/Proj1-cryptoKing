@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Crypto Kings</title>
     <link rel="stylesheet" href="assets/css/app.css" />
+    <link rel="stylesheet" href="assets/css/index.css" />
     <link rel="stylesheet" type="text/css" href="https://rawgit.com/jamesleesaunders/d3.ez/master/dist/d3-ez.css" />
   </head>
 
@@ -20,47 +21,17 @@
     </div>
 
     <!-- MAIN TABLE - COLUMN HEADINGS -->
-    <table>
-      <thead id="table-heading">
-        <!-- <tr>
-          <th>CRYPTO MARKET</th>
-          <th>24HR PRICE CHANGE (%)</th>
-          <th>CRYPTO VALUE (US$)</th>
-          <th>HOLDINGS VALUE (US$)</th>
-          <th>BUY/SELL</th>
-        </tr> -->
-      </thead>
-
-      <!-- MAING TABLE - ROWS -->
-      <tbody id="table-body">
-        <!-- <tr class="cryto-row">
-          <td class="td-symbol">BTC</td>
-          <td class="td-change">-5%</td>
-          <td class="td-price">8000</td>
-          <td class="td-holdings">
-            <p>
-              <button class="button td-holdings" data-open="buysell">
-                $0.00
-              </button>
-            </p>
-          </td>
-        </tr> -->
-      </tbody>
-    </table>
-    <!-- END - MAIN TABLE -->
-
-    <!-- POSITION SUMMARY (BANK, HOLDINGS, PROFIT/LOSS)  -->
-    <table>
-      <thead id="result-heading">
-        <!-- <tr>
-          <th>BANK</th>
-          <th>TOTAL HOLDINGS</th>
-          <th>PROFIT/LOSS</th>
-        </tr> -->
-      </thead>
-      <tbody id="results">
-      </tbody>
-    </table>
+      <table class="grid-container text-center">
+        <thead id="table-heading"></thead>
+        <!-- MAING TABLE - ROWS -->
+        <tbody id="table-body"></tbody>
+      </table>
+      <!-- END - MAIN TABLE -->
+      <!-- POSITION SUMMARY (BANK, HOLDINGS, PROFIT/LOSS)  -->
+      <table class="grid-container text-center">
+        <tbody id="result-heading"></body>
+        <tbody id="results"></tbody>
+      </table>
 
     <td id="chartholder"></td>
 
@@ -142,7 +113,6 @@
 
     <!-- BUY/SELL MODAL -->
     <div class="reveal" id="buysell" data-reveal>
-
       <div class="callout">
         <!-- TOP BUTTONS -->
         <div class="expanded button-group">
@@ -150,48 +120,8 @@
           <a class="button" data-open="successfullsell" id="sell">SELL</a>
         </div>
         <div class="modaltitle"></div> 
-        <div id="chartholder"></div>
-  
-        <!-- MAIN TABLE - COLUMN HEADINGS -->
-        
-        <!-- end POSITION SUMMARY (BANK, HOLDINGS, PROFIT/LOSS)  -->
-  
-        <!-- CHECK OK MODAL -->
-        <!-- <div class="reveal" id="example-modal-checkOK" data-reveal>
-          <h1>ARE YOU SURE?</h1>
-          <p class="lead">
-            Click OK to place the order or CANCEL to cancel the order.
-          </p>
-  
-          <div class="expanded button-group">
-            <a class="button" data-open="ok">OK</a>
-            <a class="button" data-open="cancel">CANCEL</a>
-          </div>
-  
-          <button
-            class="close-button"
-            data-close
-            aria-label="Close modal"
-            type="button"
-          >
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div> -->
-        <!-- end CHECK OK MODAL -->
-  
-        <!-- ###### QTY SLIDER #####-->
-        <!-- <div class="slider" data-slider data-initial-start="50" data-end="200">
-          <span
-            class="slider-handle"
-            data-slider-handle
-            role="slider"
-            tabindex="1"
-          ></span>
-          <span class="slider-fill" data-slider-fill></span>
-          <input type="hidden" />
-        </div> -->
-        <!-- ###### end QTY SLIDER #####-->
-  
+        <div class="loader small-offset-4"></div>
+        <div class="hide" id="chartholder"></div> 
         <form>
           <label>
             How many coins?
@@ -199,55 +129,16 @@
           </label>
           <div class=messages></div>
         </form>
-
         <tbody id="table-body">
           <tr class="cryto-row">
-            <td class="td-symbol"><input type="text" class="form-control currency1" placeholder="currency" aria-label="currency name" aria-describedby="basic-addon2" value="USD"></td>
-            <td><button type="button" class="primary button" id="1">Get the "CURRENT" price in your preffered currency before you make transaction</button></td>
+            <label>Enter a different currency!</label>
+            <td class="td-symbol"><input type="text" class="form-control currencyex" placeholder="currency" aria-label="currency name" aria-describedby="basic-addon2" value="USD"></td>
+            <td><button type="button" class="primary button" id="exchangeBtn">Get the "CURRENT" price in your preffered currency before you make transaction</button></td>
           </tr>
         </tbody>
-        <div id="price1"></div>
-       
-  
-        <!-- <p>
-          <button class="button" data-toggle="example-modal-checkOK">
-            OK TO BUY/SELL ORDER
-          </button>
-        </p> -->
-  
-        <!-- ###### end FORMS #####-->
+        <div id="priceEx"></div>
       </div>
     </div>
-
-
-
-
-    <!-- EXPERIMENTAL MODAL & BUTTON -->
-
-    <!-- <p>
-      <button class="button" data-toggle="exampleModal8">
-        Click me for a full-screen modal
-      </button>
-    </p>
-
-    <div class="full reveal" id="exampleModal8" data-reveal>
-      <p>OH I'M SO FUUUUL</p>
-      <img src="https://placekitten.com/1920/1280" alt="Introspective Cage" />
-      <button
-        class="close-button"
-        data-close
-        aria-label="Close reveal"
-        type="button"
-      >
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-
-    <p>
-      <button class="button" data-toggle="buysell">
-        Buy/Sell
-      </button>
-    </p> -->
 
     <script
     src="https://code.jquery.com/jquery-3.4.1.js"
