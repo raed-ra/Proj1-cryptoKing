@@ -83,8 +83,8 @@ function buySellprep() {
   $("#priceEx").text("");
   localStorage.setItem("symbol",symbol);
   $(".modaltitle").text(symbol);
-    gethistoryprice(symbol)
   $("#chartholder").text("");
+  gethistoryprice(symbol)
   var symbolex = localStorage.getItem("symbol"); 
   var currencyex = $(".currencyex").val().trim(); 
   getprice(symbolex,currencyex)
