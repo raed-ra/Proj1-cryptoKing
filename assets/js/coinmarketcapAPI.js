@@ -41,7 +41,7 @@ $(document).on("click", "#new", newgame);
 
 //resets all the holdings and bank, it also creates all the headers
 function newgame() {
-  event.preventDefault()
+  //event.preventDefault()
   var holdings = {"BTC":0,"ETH":0,"XRP":0,"BCH":0,"LTC":0,"EOS":0,"BNB":0,"BSV":0,"XLM":0,"XMR":0}
   localStorage.setItem("holdings",JSON.stringify(holdings))
   var NewbankValue = 100000
