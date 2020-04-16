@@ -1,4 +1,4 @@
-# Proj1-cryptoKing
+# Proj1-cryptoKing  ?style=plastic&logo=appveyor
 
 https://raed-ra.github.io/Proj1-cryptoKing/
 
